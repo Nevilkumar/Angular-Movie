@@ -50,7 +50,6 @@
 .trailer-btn{
     outline: none;
     border: none;
-    cursor: pointer;
     font-size: 20px;
     letter-spacing: 0.8px;
     font-family: 'Nunito Sans', sans-serif;
@@ -59,6 +58,7 @@
     background: #1769aa;
     border-radius: 2px;
     padding: 8px 20px;
+    text-decoration: none;
 }
 
 .backdrop{
@@ -89,9 +89,132 @@
 .btn-icon{
     background: transparent;
     vertical-align:middle;
-    width: 30px;
-    height: 30px;
-    font-size: 30px;
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 30px !important;
     margin-right: 2px;
     margin-bottom: 3px;
+}
+
+
+.mat-tab-label {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    color: white !important;
+    font-size: 24px !important;
+    letter-spacing: 0.8px;
+    margin-top: 10px;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
+    background-color: #1769aa;
+}
+
+.mat-tab-body-content {
+    height: 100%;
+    margin: 10px;
+}
+
+.mat-tab-body.mat-tab-body-active {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden !important;
+    z-index: 1;
+    flex-grow: 1;
+}
+
+/* Overview */
+
+.overview-content-container{
+    padding: 25px 60px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    justify-items: flex-start;
+    align-self: flex-start;
+    justify-self: flex-start;
+    letter-spacing: 0.7px;
+}
+
+.poster{
+    width: 250px;
+    height: 380px;
+}
+
+.details-container{
+    width: 700px;
+    color: white;
+}
+
+.storyLine-container{
+    font-size: 27px;
+    font-weight: normal;
+}
+
+.detail{
+    margin-top: 6px;
+    font-size: 18px;
+    color: rgb(174, 174, 174);
+}
+
+.title-value-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 19px;
+    margin: 15px 0;
+}
+
+.title-container{
+    display: flex;
+}
+
+.title{
+    width: 150px;
+    margin: 3px 0px;
+}
+.value{
+    margin: 3px 0px;
+    color: rgb(174, 174, 174);
+}
+/* Videos */
+
+.videos-content-container{
+    height: max-content;
+    padding: 20px;
+    width: 100%;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+.videos-container{
+    width: 320px;
+    text-decoration: none;
+}
+
+.video-name{
+    color: white;
+    letter-spacing: 0.8px;
+    font-size: 16px;
+}
+
+/* Photos */
+
+.image-content-container{
+    height: max-content;
+    padding: 20px;
+    width: 100%;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.backdropImage{
+    width: 100%;
+    border-radius: 3px;
 }

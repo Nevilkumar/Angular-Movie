@@ -13,7 +13,7 @@
                 : (currentData?.first_air_date | date: 'yyyy') 
             }} | 
             {{ 
-                this.mediaType === 'movie' ? (currentData?.runtime |ConvertTime) 
+                this.mediaType === 'movie' ? (currentData?.runtime | ConvertTime) 
                 : currentData?.number_of_seasons + 
                 (currentData?.number_of_seasons===1 ? ' Season' : ' Seasons')
             }}
@@ -21,68 +21,96 @@
         <div [class]="'description'">
             {{ currentData?.overview }}
         </div>
-        <button [class]="'trailer-btn'">
+        <a href="https://www.youtube.com/watch?v={{videos[0]?.key}}" target="_blank" [class]="'trailer-btn'">
             <mat-icon [class]="'btn-icon'" aria-hidden="false" fontIcon="play_circle"></mat-icon>
             Watch Now
-        </button>
+        </a>
     </div>
     <div *ngIf="currentData" [class]="'backdrop'">
         <img src={{originalImageUrl+currentData?.backdrop_path}} />
     </div>
 </div>
 
-<mat-tab-group class="mt-5 mb-5" mat-align-tabs="center" animationDuration="0ms">
+<mat-tab-group [class]="'tab-group'" mat-align-tabs="center" animationDuration="0ms">
     <mat-tab label="Overview">
-        <div class="listing-space info__movies">
-            <div class="left">
+        <div [class]="'overview-content-container'">
+            <div>
+                <img [class]="'poster'" src={{originalImageUrl+currentData?.poster_path}} />
             </div>
-            <div class="right">
-                <div class="overview">
-                    <h2 class="title">Storyline</h2>
-                    <div>dfasdfdf</div>
-                </div>
-                <div class="stats">
-                    <ul class="nolist">
-                        <li>
-                            <div class="label">
-                                Released
-                            </div>
-                            <div class="value">
-                                {{ 'fullDate' }}
-                            </div>
-                        </li>
-                        <li>
-                            <div class="label">
-                                Runtime
-                            </div>
-                            <div class="value">
-                                {{ 'movie?.runtime | time ' }}
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+            <div [class]="'details-container'">
+                <h2 [class]="'storyLine-container'">Storyline</h2>
+                <p [class]="'detail'">{{ currentData?.overview }}</p>
 
-        <div class="listing-space">
-            <div class="listing__head">
-                <h2 class="listing__title">Cast</h2>
-            </div>
-           
-        </div>
-
+                <div [class]="'title-value-container'">
+                    <div *ngIf="currentData?.first_air_date" [class]="'title-container'">
+                        <div [class]="'title'">First Aired</div>
+                        <div [class]="'value'">{{ currentData?.first_air_date | date }}</div>
+                    </div>
+                    <div *ngIf="currentData?.last_air_date" [class]="'title-container'">
+                        <div [class]="'title'">Last Aired</div>
+                        <div [class]="'value'">{{ currentData?.last_air_date | date}}</div>
+                    </div>
+                    <div *ngIf="currentData?.number_of_seasons" [class]="'title-container'">
+                        <div [class]="'title'">Seasons</div>
+                        <div [class]="'value'">{{ currentData?.number_of_seasons }}</div>
+                    </div>
+                    <div *ngIf="currentData?.number_of_episodes" [class]="'title-container'">
+                        <div [class]="'title'">Episodes</div>
+                        <div [class]="'value'">{{ currentData?.number_of_episodes }}</div>
+                    </div>
+                    <div *ngIf="currentData?.genres && currentData?.genres.length" [class]="'title-container'">
+                        <div [class]="'title'">Genres</div>
+                        <div [class]="'value'">
+                            <span *ngFor="let g of currentData?.genres; index as i">
+                                {{g.name+ (i+1!=currentData?.genres.length ? ', ' : '.' )}}</span>
+                        </div>
+                    </div>
+                    <div *ngIf="currentData?.release_date" [class]="'title-container'">
+                        <div [class]="'title'">Released Date</div>
+                        <div [class]="'value'">{{ currentData?.release_date | date }}</div>
+                    </div>
+                    <div *ngIf="currentData?.budget" [class]="'title-container'">
+                        <div [class]="'title'">Budget</div>
+                        <div [class]="'value'">${{ currentData?.budget | number }}
+                        </div>
+                    </div>
+                    <div *ngIf="currentData?.staus" [class]="'title-container'">
+                        <div [class]="'title'">Status</div>
+                        <div [class]="'value'">{{ currentData?.staus }}</div>
+                    </div>
+                    <div *ngIf="currentData?.runtime" [class]="'title-container'">
+                        <div [class]="'title'">Runtime</div>
+                        <div [class]="'value'">{{ currentData?.runtime | ConvertTime }}</div>
+                    </div>
+                    <div *ngIf="currentData?.spoken_languages && currentData?.spoken_languages.length" [class]="'title-container'">
+                        <div [class]="'title'">Languages</div>
+                        <div [class]="'value'">
+                            <span *ngFor="let g of currentData?.spoken_languages; index as i">
+                                {{g.english_name+ (i+1!=currentData?.spoken_languages.length ? ', ' : '.' )}}</span>
+                        </div>
+                    </div>
+                    <div *ngIf="currentData?.networks && currentData?.networks.length" [class]="'title-container'">
+                        <div [class]="'title'">Network</div>
+                        <div [class]="'value'">
+                            <span *ngFor="let g of currentData?.networks; index as i">
+                                {{g.name+ (i+1!=currentData?.networks.length ? ', ' : '.' )}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        </div>     
     </mat-tab>
     <mat-tab label="Videos">
-        <div class="listing-space videos__status">
-            <div class="items">
-            </div>
+        <div [class]="'videos-content-container'">
+            <a href="https://www.youtube.com/watch?v={{v?.key}}" target="_blank" [class]="'videos-container'" *ngFor="let v of videos">
+                <img [class]="'thumbnail'" src="https://img.youtube.com/vi/{{v?.key}}/mqdefault.jpg">
+                <p [class]="'video-name'">{{ v?.name}}</p>
+            </a>
         </div>
     </mat-tab>
     <mat-tab label="Photos">
-        <div class="listing-space backdrop_">
-            <div class="head">
-                <h2 class="title">Backdrops</h2>
-            </div>
+        <div [class]="'image-content-container'">
+            <img [class]="'backdropImage'" *ngFor="let image of backdropImages" src={{originalImageUrl+image?.file_path}} />
         </div>
     </mat-tab>
 </mat-tab-group>
