@@ -1,0 +1,17 @@
+<a [class]="'single-card-container'" [routerLink]="'/'+item.media_type+'/'+item.id">
+    <div [class]="'image-container'">
+        <img [class]="'card-poster'" src={{image_main_url+item.poster_path}} />
+        <div [class]="'given-rating'">
+            <mat-icon [class]="'rating-icon'" aria-hidden="false" fontIcon="star"></mat-icon>
+            {{ item.vote_average | number:'1.1-1'}}
+            <span [class]="'out-of-rating'">/10</span>
+        </div>
+        <div [class]="'card-quality'">HD</div>
+        <div [class]="'card-year'">
+            {{ isMovie ? item?.release_date?.substr(0, 4) : item?.first_air_date?.substr(0,4) }}
+        </div>
+    </div>
+    <div [class]="'card-title'">
+        {{ isMovie ? item?.title?.substr(0, 16) : item?.name?.substr(0, 16) }}
+    </div>
+</a>

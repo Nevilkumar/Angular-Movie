@@ -1,0 +1,63 @@
+:root{
+    --lightBlue: #00acc1;
+    --lightBlack: #212529;
+}
+
+.trending-title-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 30px;
+}
+
+.trending-title{
+    color: white;
+    font-size: 30px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-right: 15px;
+    margin-bottom: 12px;
+}
+
+.trending-icon{
+    width: 40px;
+    height: 40px;
+    margin-bottom: -10px;
+    font-size: 40px;
+}
+
+.btn{
+    padding: 8px 14px;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 20px;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    color: white;
+    margin: 5px 5px;
+    background: #24292f;
+    font-family: 'Nunito Sans', sans-serif;
+    border: none;
+    transition: all 250ms ease-in-out;
+}
+
+.activeBtn{
+    background: palevioletred;
+    background: #1769aa;
+}
+
+.btn-icon{
+    background: transparent;
+    vertical-align:middle;
+    margin-right: 2px;
+    margin-bottom: 3px;
+}
+
+.items-container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 20px;
+}

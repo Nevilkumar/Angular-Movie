@@ -1,0 +1,20 @@
+<div [class]="'trending-title-container'">
+    <h2 [class]="'trending-title'">
+        <mat-icon [class]="'trending-icon'" aria-hidden="false" fontIcon="trending_up"></mat-icon>
+        Trending
+    </h2>
+    <div>
+        <a [routerLink]="'/trending/movie'" [class.activeBtn]="isMovie" [class]="'btn'">
+            <mat-icon [class]="'btn-icon'" aria-hidden="false" fontIcon="play_circle"></mat-icon>
+            Movie
+        </a>
+        <a [routerLink]="'/trending/tv'" [class.activeBtn]="!isMovie" [class]="'btn'">
+            <mat-icon [class]="'btn-icon'" aria-hidden="false" fontIcon="tv"></mat-icon>
+            TV Series
+        </a>
+    </div>
+</div>
+    
+<div [class]="'items-container'">
+    <app-single-card *ngFor = "let item of trending_results" [isMovie]="isMovie" [item]="item"></app-single-card>
+</div>

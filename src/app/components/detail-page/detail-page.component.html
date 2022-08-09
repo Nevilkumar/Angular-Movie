@@ -1,0 +1,88 @@
+<div [class]="'details-container'">
+    <div [class]="'details'">
+        <div [class]="'details-title'">
+            {{ this.mediaType === 'movie' ? currentData?.title : currentData?.name }}
+        </div>
+        <div [class]="'rating-details'">
+            <mat-icon [class]="'rating-icon'" aria-hidden="false" fontIcon="star"></mat-icon>
+            {{ currentData?.vote_average | number: '1.1-1' }}/10 | 
+            {{ currentData?.vote_count | number }} Reviews | 
+            {{ 
+                this.mediaType === 'movie' ? 
+                (currentData?.release_date | date: 'yyyy') 
+                : (currentData?.first_air_date | date: 'yyyy') 
+            }} | 
+            {{ 
+                this.mediaType === 'movie' ? (currentData?.runtime |ConvertTime) 
+                : currentData?.number_of_seasons + 
+                (currentData?.number_of_seasons===1 ? ' Season' : ' Seasons')
+            }}
+        </div>
+        <div [class]="'description'">
+            {{ currentData?.overview }}
+        </div>
+        <button [class]="'trailer-btn'">
+            <mat-icon [class]="'btn-icon'" aria-hidden="false" fontIcon="play_circle"></mat-icon>
+            Watch Now
+        </button>
+    </div>
+    <div *ngIf="currentData" [class]="'backdrop'">
+        <img src={{originalImageUrl+currentData?.backdrop_path}} />
+    </div>
+</div>
+
+<mat-tab-group class="mt-5 mb-5" mat-align-tabs="center" animationDuration="0ms">
+    <mat-tab label="Overview">
+        <div class="listing-space info__movies">
+            <div class="left">
+            </div>
+            <div class="right">
+                <div class="overview">
+                    <h2 class="title">Storyline</h2>
+                    <div>dfasdfdf</div>
+                </div>
+                <div class="stats">
+                    <ul class="nolist">
+                        <li>
+                            <div class="label">
+                                Released
+                            </div>
+                            <div class="value">
+                                {{ 'fullDate' }}
+                            </div>
+                        </li>
+                        <li>
+                            <div class="label">
+                                Runtime
+                            </div>
+                            <div class="value">
+                                {{ 'movie?.runtime | time ' }}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="listing-space">
+            <div class="listing__head">
+                <h2 class="listing__title">Cast</h2>
+            </div>
+           
+        </div>
+
+    </mat-tab>
+    <mat-tab label="Videos">
+        <div class="listing-space videos__status">
+            <div class="items">
+            </div>
+        </div>
+    </mat-tab>
+    <mat-tab label="Photos">
+        <div class="listing-space backdrop_">
+            <div class="head">
+                <h2 class="title">Backdrops</h2>
+            </div>
+        </div>
+    </mat-tab>
+</mat-tab-group>

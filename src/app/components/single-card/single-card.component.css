@@ -1,0 +1,97 @@
+
+.single-card-container{
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 216px;
+    height: max-content;
+    background: transparent;
+    overflow: hidden;
+    box-shadow: none;
+    background: #24292f;
+    padding: 3px;
+    margin: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    padding-bottom: 8px;
+}
+
+.image-container{
+    position: relative;
+    background: transparent;
+}
+
+.rating-icon{
+    color: #dc4666;
+    background: transparent;
+    margin-right: 2px;
+    font-size: 22px;
+}
+.given-rating{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 16px;
+    color: white;
+    background: rgba(11,26,42);
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
+}
+
+.out-of-rating{
+    font-size: 13px;
+    color: rgb(174, 173, 173);
+    background: rgba(11,26,42);
+}
+
+.card-quality{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 16px;
+    color: white;
+    background: rgba(11,26,42);
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
+}
+
+.card-year{
+    position: absolute;
+    bottom: 15px;
+    left: 10px;
+    font-size: 16px;
+    color: white;
+    background: rgba(11,26,42);
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
+}
+
+.card-poster{
+    background: transparent;
+    width: 210px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.card-title{
+    color: white;
+    font-size: 20px;
+    letter-spacing: 0.7px;
+    background-color: transparent;
+    word-wrap: break-word;
+    max-width: max-content;
+}
