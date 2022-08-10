@@ -1,0 +1,9 @@
+
+<div [class]="'items-container'">
+    <app-single-card *ngFor = "let item of moviesList" [isMovie]="isMovie" [item]="item"></app-single-card>
+</div>
+
+<div [class]="'pagination-container'">
+    <mat-paginator [length]="500" [pageSize]="20" (page)="changePage($event)">
+    </mat-paginator>
+</div>

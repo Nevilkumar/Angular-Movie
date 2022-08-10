@@ -33,7 +33,6 @@ export class DetailPageComponent implements OnInit {
     this.ApiService.getMovieOrSeries(this.currentId, this.mediaType).subscribe({
       next: (res) => {
         this.currentData=res;
-        console.log(this.currentData)
       },
       error: (err) => console.log(err)
     });

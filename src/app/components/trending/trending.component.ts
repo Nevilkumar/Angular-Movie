@@ -29,7 +29,6 @@ export class TrendingComponent implements OnInit {
     this.ApiService.getTrendingLists(type).subscribe({
       next: (res) => {
         this.trending_results = res.results
-        console.log(res.results);
       },
       error: (err) => console.log(err)
     });

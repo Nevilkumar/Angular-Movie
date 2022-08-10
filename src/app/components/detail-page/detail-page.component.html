@@ -26,7 +26,7 @@
             Watch Now
         </a>
     </div>
-    <div *ngIf="currentData" [class]="'backdrop'">
+    <div *ngIf="currentData?.backdrop_path" [class]="'backdrop'">
         <img src={{originalImageUrl+currentData?.backdrop_path}} />
     </div>
 </div>
@@ -34,7 +34,7 @@
 <mat-tab-group [class]="'tab-group'" mat-align-tabs="center" animationDuration="0ms">
     <mat-tab label="Overview">
         <div [class]="'overview-content-container'">
-            <div>
+            <div *ngIf="currentData?.poster_path">
                 <img [class]="'poster'" src={{originalImageUrl+currentData?.poster_path}} />
             </div>
             <div [class]="'details-container'">
@@ -103,7 +103,12 @@
     <mat-tab label="Videos">
         <div [class]="'videos-content-container'">
             <a href="https://www.youtube.com/watch?v={{v?.key}}" target="_blank" [class]="'videos-container'" *ngFor="let v of videos">
-                <img [class]="'thumbnail'" src="https://img.youtube.com/vi/{{v?.key}}/mqdefault.jpg">
+                <div [class]="'thumbnail'">
+                    <img  src="https://img.youtube.com/vi/{{v?.key}}/mqdefault.jpg">
+                    <div  [class]="'hover-video-icon'">
+                        <mat-icon [class]="'hover-icon'" aria-hidden="false" fontIcon="play_circle"></mat-icon>
+                    </div>
+                </div>
                 <p [class]="'video-name'">{{ v?.name}}</p>
             </a>
         </div>

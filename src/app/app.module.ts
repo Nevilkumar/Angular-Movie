@@ -11,14 +11,18 @@ import {MatIconModule} from '@angular/material/icon';
 import { DetailPageComponent } from './components/detail-page/detail-page.component';
 import { TimePipe } from './pipes/time.pipe';
 import {MatTabsModule} from '@angular/material/tabs';
-
+import { MoviesComponent } from './components/movies/movies.component';
+import { TvComponent } from './components/tv/tv.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 @NgModule({
   declarations: [
     AppComponent,
     TrendingComponent,
     SingleCardComponent,
     DetailPageComponent,
-    TimePipe
+    TimePipe,
+    MoviesComponent,
+    TvComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     HttpClientModule,
     BrowserAnimationsModule,
     MatIconModule,
-    MatTabsModule
+    MatTabsModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

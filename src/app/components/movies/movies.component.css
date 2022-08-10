@@ -1,0 +1,43 @@
+
+.items-container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+/* Pagination */
+
+.pagination-container{
+    background: transparent;
+    margin: 20px 0;
+}
+
+.mat-paginator {
+    background: transparent;
+}
+
+.mat-paginator-container {
+    background: #24292f !important;
+    margin: 0px 80px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 8px;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+    font-size: 16px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.mat-paginator-icon {
+    display: inline-block;
+    width: 28px;
+    fill: currentColor;
+    color: white;
+}
+
+
+
