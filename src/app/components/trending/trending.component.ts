@@ -13,7 +13,10 @@ export class TrendingComponent implements OnInit {
 
   trending_results: any;
   isMovie: boolean = true;
+  loading: boolean = true;
+
   ngOnInit(): void {
+    this.loading = true;
     this.router.params.subscribe((params: Params) => {
       this.isMovie = params['mediaType']==='movie' ? true : false;
       this.getTrendingLists(this.isMovie ? 'movie' : 'tv');
@@ -21,6 +24,8 @@ export class TrendingComponent implements OnInit {
   }
 
   getTrendingLists(type: string) {
+    this.loading = true;
+    
     if(type=='movie')
       this.isMovie=true;
     else
@@ -28,7 +33,8 @@ export class TrendingComponent implements OnInit {
       
     this.ApiService.getTrendingLists(type).subscribe({
       next: (res) => {
-        this.trending_results = res.results
+        this.trending_results = res.results;
+        this.loading = false;
       },
       error: (err) => console.log(err)
     });

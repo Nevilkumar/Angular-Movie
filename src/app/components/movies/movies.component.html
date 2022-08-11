@@ -1,9 +1,22 @@
 
-<div [class]="'items-container'">
-    <app-single-card *ngFor = "let item of moviesList" [isMovie]="isMovie" [item]="item"></app-single-card>
+<app-navbar></app-navbar>
+<div [class]="'serach-container'">
+    <form class="example-form" #searchForm="ngForm">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Search Movie</mat-label>
+            <input matInput autocomplete="off" name="searchString" [(ngModel)]="searchStr" (keyup.enter)="getMoviesList(1)" >
+        </mat-form-field>
+    </form>
+</div>
+
+<div *ngIf="loading" [class]="'loading'">
+    <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="!loading" [class]="'items-container'">
+    <app-single-card *ngFor = "let item of moviesList" [isMovie]="true" [item]="item"></app-single-card>
 </div>
 
 <div [class]="'pagination-container'">
-    <mat-paginator [length]="500" [pageSize]="20" (page)="changePage($event)">
+    <mat-paginator [length]="data?.total_results" [pageSize]="20" (page)="changePage($event)">
     </mat-paginator>
 </div>

@@ -11,9 +11,6 @@ export class SingleCardComponent implements OnInit {
 
   image_main_url: string = 'https://image.tmdb.org/t/p/w300';
   constructor() {
-    console.log(this.item)
-    console.log(this.isMovie)
-    console.log("first")
    }
 
   ngOnInit(): void {

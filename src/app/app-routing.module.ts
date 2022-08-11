@@ -6,10 +6,10 @@ import { TrendingComponent } from './components/trending/trending.component';
 import { TvComponent } from './components/tv/tv.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'trending/movie', pathMatch: 'full'},
-  {path: 'trending/:mediaType', component: TrendingComponent},
   {path: 'movies', component: MoviesComponent},
   {path: 'tv', component: TvComponent},
+  {path: '', redirectTo: 'trending/movie', pathMatch: 'full'},
+  {path: 'trending/:mediaType', component: TrendingComponent},
   {path: ':mediaType/:id', component: DetailPageComponent}
 ];
 
